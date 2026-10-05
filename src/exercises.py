@@ -5,7 +5,7 @@ orders = [
     {"order_id": 4, "customer": "Kate", "value": 55.50},
     {"order_id": 5, "customer": "John", "value": 310.00},
 ]
-# Total revenue 
+# Total revenue
 total = 0
 for order in orders:
     total = total + order["value"]
@@ -37,6 +37,7 @@ for order in orders:
 for customer, total in totals.items():
     print(f"{customer} spent {total:.2f}")
 
+
 # Customer with the highest total spend
 top_customer = None
 top_total = 0
@@ -52,12 +53,11 @@ print(f"Top customer is {top_customer} with {top_total:.2f}")
 gt100_orders = sum(order["value"] for order in orders if order["value"] > 100)
 print(f"Total revenue only for orders greater than 100 is: {gt100_orders}.")
 
+
 # Create function for that
 def calculate_total(orders):
     return sum(order["value"] for order in orders)
 
+
 total = calculate_total(orders)
 print(total)
-
-
-
