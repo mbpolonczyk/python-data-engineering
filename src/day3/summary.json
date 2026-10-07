@@ -1,0 +1,9 @@
+{
+    "total": 500,
+    "order_count": 4,
+    "customer_totals": {
+        "Anna": 370,
+        "John": 80,
+        "Mark": 50
+    }
+}

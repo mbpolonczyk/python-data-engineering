@@ -1,0 +1,22 @@
+[
+  {
+    "order_id": "order_001",
+    "customer": "Anna",
+    "value": 120
+  },
+  {
+    "order_id": "order_002",
+    "customer": "John",
+    "value": 80
+  },
+  {
+    "order_id": "order_003",
+    "customer": "Anna",
+    "value": 250
+  },
+  {
+    "order_id": "order_004",
+    "customer": "Mark",
+    "value": 50
+  }
+]

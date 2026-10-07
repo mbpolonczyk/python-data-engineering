@@ -1,0 +1,2 @@
+Total order value: 500
+Number of orders: 4
