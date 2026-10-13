@@ -129,3 +129,20 @@ def calculate_customer_totals(orders):
 
 
 print(calculate_customer_totals(orders))
+
+# Exercise 6
+orders = [
+    {"customer": "Anna", "value": 80},
+    {"customer": "Tom", "value": 150},
+    {"customer": "Kate", "value": 200}
+]
+
+def find_first_large_order(orders, minimum_value):
+    for order in orders:
+        if order["value"] > minimum_value:
+            customer = order["customer"]
+
+            return customer
+    return None # The function checks every order and returns None only if no match is found
+
+print(find_first_large_order(orders, 100))
