@@ -4,7 +4,6 @@ from collections import Counter, defaultdict
 # `defaultdict(factory)`: when you access a missing key, it calls `factory()` to create a default value (e.g. `int` → `0`, `list` → `[]`).
 # Docs: https://docs.python.org/3/library/collections.html
 
-# **Do (30 min)** in `src/day9/exercises9.py`
 # 1. Rewrite `count_occurences` from Day 5 as a one-liner with `Counter`. Print the 2 most common numbers.
 numbers = [4, 7, 2, 7, 9, 2, 4, 7]
 
