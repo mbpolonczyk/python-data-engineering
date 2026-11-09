@@ -10,7 +10,7 @@ c = Counter(["drills", "saws", "drills"])   # Counter({'drills': 2, 'saws': 1})
 c.most_common(1)                            # [('drills', 2)]
 c["hammers"]                                # 0, no KeyError, and the key is NOT added
 ```
-**Gotcha:** `.most_common()` without `n` returns *all* items sorted. `c1 - c2` silently drops counts that fall to zero or below.
+**Gotcha:** `.most_common()` without `n` returns *all* items sorted. `c1 - c2` silently drops counts that fall to zero or below, so an oversold item (stock 1, sold 3) just *disappears*. Use `c1.subtract(c2)` (in place, returns None) to keep `0` and negative counts. **Ties** are ordered by first appearance, so the top-N cut-off is arbitrary. For a stable result, use `sorted(c.items(), key=lambda kv: (-kv[1], kv[0]))[:n]`.
 **SQL/Spark twin:** `SELECT x, COUNT(*) ... GROUP BY x ORDER BY 2 DESC LIMIT n` · `df.groupBy("x").count().orderBy(desc("count")).limit(n)`
 **Interview line:** "For top-N counts I use `Counter(...).most_common(n)`: one O(n) pass, no hand-written loop. With huge files I stream lines and call `.update()`."
 **Related:** [defaultdict](#defaultdict), [generator expression](generators.md#generator-expression)
@@ -27,5 +27,5 @@ dict(skus)                     # {'Anna': ['D-100']}
 **Gotcha:** Just *reading* `dd["x"]` **inserts** the key. Use `"x" in dd` or `dd.get("x")` to check without creating it. `defaultdict(0)` fails because the factory must be callable.
 **SQL/Spark twin:** `defaultdict(float)` + `+=` ≈ `SUM(value) GROUP BY key` · `defaultdict(list)` ≈ `collect_list` / `ARRAY_AGG`
 **Interview line:** "I use `defaultdict(list)` to group and `defaultdict(float)` to sum per key, and I convert to a plain `dict` before returning, so nobody creates keys by accident."
-**Related:** [Counter](#counter), [dict.get and KeyError](dicts.md#dictget-and-keyerror)
+**Related:** [Counter](#counter), [dict.get and KeyError](dicts.md#dictget-and-keyerror), [pure function](functions.md#pure-function-create-state-inside): create the defaultdict *inside* the function
 _Learned: Day 9 · 2026-11-09_
