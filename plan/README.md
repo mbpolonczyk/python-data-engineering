@@ -9,7 +9,7 @@
 
 ## ▶ Where am I?
 
-**Next up: [Day 9 · Counter and defaultdict](week-01-pythonic-data.md#day-9)**
+**Next up: [Day 10 · Big-O and choosing data structures](week-01-pythonic-data.md#day-10)**
 
 *(Update this line when you finish a day, so opening this file always tells you what to do next.)*
 
