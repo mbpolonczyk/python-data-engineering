@@ -42,3 +42,16 @@ to_words("Great drill, great price!")   # ['great', 'drill', 'great', 'price']
 **Interview line:** "When a line gets long I pull it into a helper, so it's readable, reusable and testable on its own."
 **Related:** [Pure function](#pure-function-create-state-inside), [`re.findall`](regex.md#refindall-and-w)
 _Learned: Day 9 · 2026-11-09_
+
+### `lambda`
+**What:** A tiny function with no name, written on one line: `lambda inputs: result`. Used when you need to hand a small piece of code to another function.
+```python
+orders = [{"id": 1, "value": 120}, {"id": 2, "value": 80}]
+sorted(orders, key=lambda o: o["value"])     # sort by value: id 2 first
+max(orders, key=lambda o: o["value"])        # {'id': 1, 'value': 120}
+```
+**Gotcha:** One expression only, no statements or `return`. If it needs a name or more than one line, write a normal `def`.
+**SQL/Spark twin:** Spark UDFs are often written as lambdas: `udf(lambda s: s.lower())`.
+**Interview line:** "I use a lambda for one-off keys, like `sorted(..., key=lambda o: o['value'])`; anything reusable gets a real `def`."
+**Related:** [`timeit.timeit`](complexity.md#timeittimeit), [`sorted()` vs `list.sort()`](lists.md#sorted-vs-listsort)
+_Learned: Day 10 · 2026-11-10_
